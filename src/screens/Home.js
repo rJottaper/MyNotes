@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { SafeAreaView, View, Text, StyleSheet, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getAllTopics } from '../libs/Storage';
+
 import NavigationHeader from '../components/NavigationHeader';
 import Topic from '../components/Topic';
 
@@ -10,7 +13,21 @@ const Home = ({ route }) => {
 
   const [topic, setTopic] = useState([]);
 
-  
+  // const newTopic = async (id) => {
+  //   try {
+  //     const topic = await getAllTopics();
+  //     setTopic(topic);
+  //   } catch (e) {
+  //     console.log(e);
+  //   };
+  // };
+
+  // useEffect(() => {
+  //   newTopic();
+  // }, [topic])
+
+  // To Clear Home Screen
+  // AsyncStorage.clear();
 
   useEffect(() => {
     if (route.params) {

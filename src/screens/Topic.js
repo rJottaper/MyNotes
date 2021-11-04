@@ -2,13 +2,35 @@ import React, { useEffect, useState } from 'react';
 import { SafeAreaView, View, Text, StyleSheet, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getAllNotes } from '../libs/Storage';
+
 import NavigationHeader from '../components/NavigationHeader';
 import Notes from '../components/Notes';
+
+
 
 const Topic = ({ route }) => {
   const navigation = useNavigation();
   
   const [notes, setNotes] = useState([]);
+
+  // const renderNote = async (id) => {
+  //   try {
+  //     const note = await getAllNotes();
+  //     setNotes(note);
+  //   } catch (e) {
+  //     console.log(e);
+  //   };
+  // };
+
+  // useEffect(() => {
+  //   renderNote()
+  // }, [notes])
+  
+  // const newNote = () => {
+  //   navigation.navigate('newNotes')
+  // }
 
   useEffect(() => {
     if (route.params) {

@@ -12,7 +12,7 @@ const Input = ({ title, value, newValue, placeholder, maxLength }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 15
+    marginBottom: 10
   },
   title: {
     fontSize: 18,
